@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="cardstack-1.0.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/82537419258e568eceac942aebc07286daef1a63/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/82537419258e568eceac942aebc07286daef1a63/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.loopeer.library/cardstack/1.0.2/c40b43101678d4eaf230d41f34547688e81f8f1a/cardstack-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

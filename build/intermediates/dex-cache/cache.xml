@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_05c0a50dbea6184786d454e9d138624019584dd7\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.2\43eeae0b9fb087bb3194ba59ab63a38a32fbf3e\retrofit-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\retrofit-2.0.2_5a9fefe819b14a63d67536ef0850d8397c599164.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\okhttp-3.2.0_05a9a18cac79c32584c1e136241ed7a15c16c9e9.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f81a9ca21486765363b5fc5e8145e1b824c3cbe0">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_bf0ff151ed8b62aa90aa59fbc61a0d987e74f29d\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\okio-1.6.0_083652543649a3a13c97d11738a23c296ed79e61.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.2\f8d87f15b94b8d74e7ccf61d7eedb558811cdb30\converter-gson-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\converter-gson-2.0.2_8da4254548e594daec43ab405e5ddfafb5a9de48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.android\build-cache\802fe1ed7e103af9020e82884f93839ea0b73f93\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="29864b68d990da5b14dbff9fbecf10600bcf7603">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_17e8afb5d963e05a65dd63c5caa042b6e530a1c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.android\build-cache\99cf853aec8ebd4955b29357ccd7c6d9c13ba46f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="343ad59d9fb3bbf6ab99baafad859eb4b0fecc02">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_de560c34360b929a5c94f675e3056206ec9b46f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.android\build-cache\61a07259b369fdb6299c03f8482fcf678de2a1e6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="263c1c941f603469ecbaf8745f7b2d18ae85c5c0">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_6128d8d912534a7280f00ba736d60cbe1c7460f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.1\b9d63507329a7178e026fc334f87587ee5070ac5\gson-2.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\gson-2.6.1_a01400b0780a05c73e7d7000287b1bb666587a9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit-mock\2.0.2\befed42cb4fb8e85ef205b3facfd5b4e43fc1c8f\retrofit-mock-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="befed42cb4fb8e85ef205b3facfd5b4e43fc1c8f">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\retrofit-mock-2.0.2_5c270f45784d4fee928be31d81468ad034e7d31c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sharma\.android\build-cache\e71902eca4886a6510bb72a5137852c0e071ff90\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="392710e58ef3f5dde273806679e8533d37b73da1">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_80fceeb3db2cf9f225875c707a7626816c1d614c.jar" />
+    </item>
+
+</items>

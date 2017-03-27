@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "590313154951",
+    "project_id": "vertosacademy-158220"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590313154951:android:298f099d97c84afc",
+        "android_client_info": {
+          "package_name": "com.example.sharma.vertosacademy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590313154951-fh8e1hgorl0ks4ktpvprnkglps0258gk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sharma.vertosacademy",
+            "certificate_hash": "a8eed932965e9cbccef79cc972e2a54c551147fa"
+          }
+        },
+        {
+          "client_id": "590313154951-4s609annoqi7u2or6bej5evmg5fm1o4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcyw9Ny2vYGLgRM9ojoU9usK3drSr6A3A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

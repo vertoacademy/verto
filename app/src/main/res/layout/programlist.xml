@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_testspinner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.sharma.vertosacademy.Program_ListActivity.Programlist">
+
+    <RelativeLayout
+        android:id="@+id/show_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:alpha="0.7"
+        android:background="@drawable/verto">
+
+        <Spinner
+            android:id="@+id/schoolname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rounder_spinner"
+            android:ems="10"
+            android:spinnerMode="dropdown"/>
+
+
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gridview_department"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="1"
+        android:padding="5dp"
+        android:verticalSpacing="10dp"/>
+</LinearLayout>

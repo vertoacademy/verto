@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/color_1"
+    android:padding="20dp">
+
+
+    <TextView
+        android:id="@+id/tv_single_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_single_image_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:text="title"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_single_href"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_single_image_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:text="Url of page"
+        android:textColor="#000"
+        android:textSize="15sp"
+         />
+
+    <TextView
+        android:id="@+id/tv_single_discription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_single_image_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:text="Discription of the topic"
+        android:textColor="#000"
+        android:textSize="15sp"
+        />
+</LinearLayout>

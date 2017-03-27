@@ -1,0 +1,82 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.example.sharma.vertosacademy"
+        //push notification configration
+        manifestPlaceholders = [manifestApplicationId          : "&{application}",
+                                onesignal_app_id               : "90b208a9-bc46-4baa-abfe-8d44a92702b8",
+                                onesignal_google_project_number: "119256568650"]
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+}
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //push notification dependency
+
+    // Required for OneSignal, even if you have added FCM.//////// also in google login
+
+    // Required for geotagging
+
+    // play-services-analytics is only needed when using 8.1.0 or older.
+    // compile 'com.google.android.gms:play-services-analytics:+'
+
+    //facebook dependency
+
+    //google login dependency
+    //compile 'com.google.android.gms:play-services-plus:7.8.0'
+
+    //compile 'com.onesignal:OneSignal:3.+@aar'
+    ///////////for gooogle sign depecdency/////////////
+    //   compile 'com.alexzh:circleimageview:1.1.2@aar'
+    //login signup circular imageview
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.google.android.gms:play-services-gcm:10.2.0'
+    compile 'com.google.android.gms:play-services-location:10.2.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.19.0'
+    compile 'com.android.support:support-v4:25.2.0'
+    compile 'com.google.android.gms:play-services-auth:10.2.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
+    compile 'com.loopeer.library:cardstack:1.0.2'
+    compile 'de.hdodenhof:circleimageview:1.3.0'
+    testCompile 'junit:junit:4.12'
+    compile('com.digits.sdk.android:digits:2.0.6@aar') {
+        transitive = true;
+    }
+}
+apply plugin: 'com.google.gms.google-services'
