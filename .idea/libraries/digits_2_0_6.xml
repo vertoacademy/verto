@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="digits-2.0.6">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/e71902eca4886a6510bb72a5137852c0e071ff90/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/e71902eca4886a6510bb72a5137852c0e071ff90/output/res" />
+      <root url="jar://C:/Android/.android/build-cache/d10708c4c4fc901102dd8c1d6029857c9efc00f0/output/jars/classes.jar!/" />
+      <root url="file://C:/Android/.android/build-cache/d10708c4c4fc901102dd8c1d6029857c9efc00f0/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

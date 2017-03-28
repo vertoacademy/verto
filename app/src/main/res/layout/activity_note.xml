@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_note"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.sharma.vertosacademy.NoteTaker.NoteActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar9"
+        android:minHeight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:titleTextColor="#fff"
+        android:background="@color/colorAccent">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="NOTE TAKER"
+            android:textColor="#fff"
+            />
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@android:drawable/ic_menu_save"
+            android:layout_marginLeft="88dp"
+            android:onClick="SAVE"
+            />
+    </android.support.v7.widget.Toolbar>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:id="@+id/note_et_tittle"
+        android:layout_alignParentTop="true"
+        android:hint="Enter title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Enter Content"
+        android:id="@+id/note_et_content"
+        android:layout_below="@+id/note_et_tittle" />
+</LinearLayout>

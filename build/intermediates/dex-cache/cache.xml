@@ -2,112 +2,139 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_05c0a50dbea6184786d454e9d138624019584dd7\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.2\43eeae0b9fb087bb3194ba59ab63a38a32fbf3e\retrofit-2.0.2.jar"
+        jar="C:\Android\.android\build-cache\f10ff04d70e080022bf609d31215f5c3227cef12\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\retrofit-2.0.2_5a9fefe819b14a63d67536ef0850d8397c599164.jar" />
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_569aa3e9127839aeea87451b2bb0f5dac6f52afe.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
+        jar="C:\Android\.android\build-cache\3214250b0ed590cd7f974e4cbbb0cfb9574cc68e\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\okhttp-3.2.0_05a9a18cac79c32584c1e136241ed7a15c16c9e9.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f81a9ca21486765363b5fc5e8145e1b824c3cbe0">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_bf0ff151ed8b62aa90aa59fbc61a0d987e74f29d\classes.dex" />
+        sha1="7e6a161b3796c15fe00755ce47e03067e568ecc4">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_6bf9c3b7fea583e71c4c28a703ca35c4aa1ec7c2.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jar="C:\Android\.android\build-cache\6427932f845ab34bae964ce3068b94d263e5cfa6\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\okio-1.6.0_083652543649a3a13c97d11738a23c296ed79e61.jar" />
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_a274fbd06c4dba415e94f5618197c381b85ee80e.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.2\f8d87f15b94b8d74e7ccf61d7eedb558811cdb30\converter-gson-2.0.2.jar"
+        jar="C:\Android\.android\build-cache\1193157a13e236b73f8037ffe49a01381a5bca82\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\converter-gson-2.0.2_8da4254548e594daec43ab405e5ddfafb5a9de48.jar" />
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_305a677f89e869fa6b6e3bc34432a2d06f421d35.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.android\build-cache\802fe1ed7e103af9020e82884f93839ea0b73f93\output\jars\classes.jar"
+        jar="C:\Android\.android\build-cache\f0695d98882bbe06bf6e501c70b8864365d0d241\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="29864b68d990da5b14dbff9fbecf10600bcf7603">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_17e8afb5d963e05a65dd63c5caa042b6e530a1c2.jar" />
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_fc0bd9fec51269fd5401d2515b5db8e40cf0bf92.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.android\build-cache\99cf853aec8ebd4955b29357ccd7c6d9c13ba46f\output\jars\classes.jar"
+        jar="C:\Android\.android\build-cache\f1e6c9d3793baf3cff4dabb8cd7121485656704e\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="343ad59d9fb3bbf6ab99baafad859eb4b0fecc02">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_de560c34360b929a5c94f675e3056206ec9b46f0.jar" />
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_32b099f74206718a7175b6cb96f53b24a934452b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.android\build-cache\61a07259b369fdb6299c03f8482fcf678de2a1e6\output\jars\classes.jar"
+        jar="C:\Android\.android\build-cache\76fe87001a5c2cde8d76b5d80b63d2399885f000\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="263c1c941f603469ecbaf8745f7b2d18ae85c5c0">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_6128d8d912534a7280f00ba736d60cbe1c7460f9.jar" />
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_315c3d9edecdd935a8878b29b5dc9dad8b1d5b8c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.1\b9d63507329a7178e026fc334f87587ee5070ac5\gson-2.6.1.jar"
+        jar="C:\Android\.android\build-cache\8dfe8342b271adcd2327b0abe584963129732437\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\gson-2.6.1_a01400b0780a05c73e7d7000287b1bb666587a9b.jar" />
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_27de09a71d8d79db8fac2ac3fe9817ec185846a9.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit-mock\2.0.2\befed42cb4fb8e85ef205b3facfd5b4e43fc1c8f\retrofit-mock-2.0.2.jar"
+        jar="C:\Android\.android\build-cache\bfb702c017f8e706053639b4ee52468d92d8b3f6\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="befed42cb4fb8e85ef205b3facfd5b4e43fc1c8f">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\retrofit-mock-2.0.2_5c270f45784d4fee928be31d81468ad034e7d31c.jar" />
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_6dfa747a2cb2ec49af52bc1e5e9f8a297fe89a42.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sharma\.android\build-cache\e71902eca4886a6510bb72a5137852c0e071ff90\output\jars\classes.jar"
+        jar="C:\Android\.android\build-cache\397b0cde1a4d49d96ef02574e9ea8923d7b563fa\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="392710e58ef3f5dde273806679e8533d37b73da1">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\Demo-master\app\build\intermediates\pre-dexed\debug\classes_80fceeb3db2cf9f225875c707a7626816c1d614c.jar" />
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_58e2c819f198ca28bdf824c97d724967561576c3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\6b7f76799c19506b2d47215f7770820a4b1387cb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_54b4008d0490d6e5042f98ae7475f084ec95d1c7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\5373ddb7490c3b1b46d1efed4520ae9c77bf40ed\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_93c59fd0a0c5d85e8530cfc743f9bb979d15f1ae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\8954ea6616dd377ca4cbb4f6bbc33db7564421f8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_8d366f53464a2c3ba735ccbf0d95f234fd5545b1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\f3799b6edc54ecbad6f99f1c1d9e7e12b0b71e3b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_7bac56258fa75ef89abc38bc94fcbbe6279e6b06.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\705a7e6787ddca387ed91733e6d7354afd9a9a66\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\AndroidApp\VERTOSAPP\app\build\intermediates\pre-dexed\debug\classes_51d4587f90e5399d1634d727ff99d2640080ecf8.jar" />
     </item>
 
 </items>

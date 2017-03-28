@@ -17,9 +17,13 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.sharma.vertosacademy.Menu_Activity.Menu_Activity;
+import com.example.sharma.vertosacademy.NoteTaker.MainNoteTaker;
+import com.example.sharma.vertosacademy.NoteTaker.NoteActivity;
 import com.example.sharma.vertosacademy.ProgramData;
 import com.example.sharma.vertosacademy.Program_ListActivity.Programlist;
 import com.example.sharma.vertosacademy.R;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,6 +44,9 @@ public class Homepage_fragment extends Fragment {
     ProgramData pd;
     Button main,profile;
     String str1,str2,str3;
+
+    FloatingActionMenu materialDesignFAM;
+    FloatingActionButton floatingActionButton1;
 
 
     public Homepage_fragment() {
@@ -70,7 +77,15 @@ public class Homepage_fragment extends Fragment {
             }
         });
 
-
+        materialDesignFAM = (FloatingActionMenu) view.findViewById(R.id.floating_action_menu);
+        floatingActionButton1 = (FloatingActionButton) view.findViewById(R.id.editNote);
+        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu first item clicked
+                //Toast.makeText(getActivity().getApplicationContext(), "Add Action Here!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getActivity(), MainNoteTaker.class));
+            }
+        });
         /////////////GridView populate here///////////////
 
 
