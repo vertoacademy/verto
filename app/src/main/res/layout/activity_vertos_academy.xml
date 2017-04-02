@@ -28,7 +28,7 @@
         android:layout_below="@id/app_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:background="@mipmap/logo" />
+        android:background="@drawable/logo" />
 
     <Button
         android:id="@+id/login_btn"

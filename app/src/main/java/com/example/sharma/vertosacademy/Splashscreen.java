@@ -28,12 +28,14 @@ public class Splashscreen extends AppCompatActivity {
     private static int splashInterval =4000;
     Animation zoom_out;
     ImageView logo;
+    Userdetail userdetail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new TwitterCore(authConfig), new Digits.Builder().build());
         setContentView(R.layout.activity_splashscreen);
+        userdetail =new Userdetail(this);
         zoom_out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_out);
         logo =(ImageView)findViewById(R.id.splash_logo);
         logo.setAnimation(zoom_out);
@@ -42,18 +44,17 @@ public class Splashscreen extends AppCompatActivity {
             public void run() {
                 //TODO Auto-generated methods stub
 
-                sharedPreferences = getSharedPreferences("LoginStatusKey", Context.MODE_PRIVATE);
-                String check_simplelogin = sharedPreferences.getString("LoginStatus",null);
-
-                if (check_simplelogin !=null && check_simplelogin.equalsIgnoreCase("login")){
-                    Intent i =new Intent(Splashscreen.this,MainPage.class);
-                    startActivity(i);
-                    finish();
-                } else{
-                    Intent i =new Intent(Splashscreen.this,VertosAcademy.class);
-                    startActivity(i);
-                    finish();
-                }
+               if(userdetail.getIsActive()){
+                   Intent i = new Intent(Splashscreen.this,MainPage.class);
+                   startActivity(i);
+                   finish();
+               }
+               else
+               {
+                   Intent i = new Intent(Splashscreen.this,VertosAcademy.class);
+                   startActivity(i);
+                   finish();
+               }
 
             }
 

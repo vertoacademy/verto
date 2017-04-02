@@ -2,12 +2,8 @@ package com.example.sharma.vertosacademy.Drawer_Activity;
 
 
 import android.app.ProgressDialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.annotation.RequiresApi;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +17,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sharma.vertosacademy.ProgramData;
-import com.example.sharma.vertosacademy.ProgramDataPicker;
 import com.example.sharma.vertosacademy.R;
 
 import org.json.JSONArray;
@@ -32,8 +27,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.example.sharma.vertosacademy.R.layout.single_layout_spinner;
 
 
 /**
@@ -120,10 +113,7 @@ public class Search extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Custom_Search_Adapter adapter = new Custom_Search_Adapter(getActivity(),R.id.spinnerxml,autocomplete_topictitle);
-        search.setAdapter(adapter);
-        search.setThreshold(1);
-        adapter.notifyDataSetChanged();
+
 
         /**
          * To attach image and title in gridview

@@ -28,44 +28,46 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.sharma.vertosacademy.Account_files.FriendList_fragment;
 import com.example.sharma.vertosacademy.Account_files.LoginPage;
 import com.example.sharma.vertosacademy.Account_files.VertosAcademy;
+import com.example.sharma.vertosacademy.NoteTaker.MainNoteTaker;
 import com.example.sharma.vertosacademy.Program_ListActivity.Programlist;
 import com.example.sharma.vertosacademy.R;
 import com.example.sharma.vertosacademy.Splashscreen;
+import com.example.sharma.vertosacademy.Userdetail;
+import com.facebook.login.LoginManager;
+
+import static com.example.sharma.vertosacademy.R.id.toolbar;
 
 public class MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ImageView tv_imgUrl;
     TextView txt_Uname, txt_Uemail;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
     Animation push_left_in, push_left_out;
-    Button searchbutton;
     Menu menu;
+    Toolbar toolbar;
+    Userdetail userdeatil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+        userdeatil = new Userdetail(this);
         push_left_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.push_left_in);
         push_left_out = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.push_left_out);
-      /*  searchbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchfunction();
-            }
-        });*/
 
-        /////////to find the view the new layout  nav header///////
+
+        ///////////////to find the view the new layout  nav header/////////////////
         View view;
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         menu = navigationView.getMenu();
+        navigationView.getBackground().setAlpha(200);
 
 
         view = navigationView.getHeaderView(0);
@@ -73,13 +75,13 @@ public class MainPage extends AppCompatActivity
         tv_imgUrl = (ImageView) view.findViewById(R.id.imageurl);
         txt_Uname = (TextView) view.findViewById(R.id.userlogin);
         txt_Uemail = (TextView) view.findViewById(R.id.useremail);
-
-        // String url =(SharedprefFacebook.getmInstance(this).getFBinfo().get(1));
-        // txt_Uname.setText(SharedprefFacebook.getmInstance(this).getFBinfo().get(2));
-        //txt_Uemail.setText(SharedprefFacebook.getmInstance(this).getFBinfo().get(3));
-
-        sharedPreferences = getSharedPreferences("GoogleProf", MODE_PRIVATE);
-        Glide.with(this).load(sharedPreferences.getString("gUImgUrl", "Profile Pic"))
+        ///////////////get email ,ussername and imageurl from userdedail class for google,facebook of simple login/////////////////
+        String email = userdeatil.getemail();
+        String username = userdeatil.getusername();
+        String imageurl = userdeatil.getimageurl();
+        txt_Uemail.setText(email);
+        txt_Uname.setText(username);
+        Glide.with(this).load(imageurl)
                 .asBitmap().centerCrop().into(new BitmapImageViewTarget(tv_imgUrl) {
             @Override
             protected void setResource(Bitmap resource) {
@@ -90,7 +92,8 @@ public class MainPage extends AppCompatActivity
         });
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Vertos Academy");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -103,6 +106,11 @@ public class MainPage extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    public void setTit(String title)
+    {
+        toolbar.setTitle(title);
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -112,6 +120,7 @@ public class MainPage extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -128,9 +137,7 @@ public class MainPage extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -140,34 +147,43 @@ public class MainPage extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-       /* if (id == R.id.nav_login) {
-
-            Intent i = new Intent(MainPage.this, LoginPage.class);
-            startActivity(i);
-            finish();
-
-        }*/
-        if (id == R.id.nav_profile) {
+        if(id == R.id.nav_Home){
+            toolbar.setTitle("Vertos Academy");
+            Fragment fragprofile = new Homepage_fragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentholder, fragprofile);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+        else if (id == R.id.nav_profile) {
+            //toolbar.setTitle("Profile");
             Fragment fragprofile = new profile();
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             /*finish();
             overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);*/
             if (fragmentTransaction != null) {
+                toolbar.setTitle("Profile");
                 fragmentTransaction.replace(R.id.fragmentholder, fragprofile);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
+        }
+        else if(id == R.id.nav_stickyNotes){
+            startActivity(new Intent(this, MainNoteTaker.class));
+        }
+        else if (id == R.id.nav_share) {
+            toolbar.setTitle("Share");
+            Toast.makeText(this, "Share Page", Toast.LENGTH_SHORT).show();
+
+
         } else if (id == R.id.about_us) {
+            toolbar.setTitle("About Us");
+            Toast.makeText(this, "About Us Page", Toast.LENGTH_SHORT).show();
 
-
-        } else if (id == R.id.nav_offers) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_suggest) {
-
-        } else if (id == R.id.nav_chat) {
+        } else if (id == R.id.app_user) {
+            toolbar.setTitle("App Users");
             Fragment fragment = new FriendList_fragment();
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -175,20 +191,19 @@ public class MainPage extends AppCompatActivity
             overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);*/
             if (fragmentTransaction != null) {
                 fragmentTransaction.replace(R.id.fragmentholder, fragment);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
 
-
         } else if (id == R.id.nav_logout) {
             //Toast.makeText(getApplicationContext(),"chal gya",Toast.LENGTH_LONG).show();
-            SharedPreferences sharedPreferences = getSharedPreferences("LoginStatusKey", Context.MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            editor.apply();
-            editor.clear();
-            editor.apply();
+            userdeatil.logout();
+            LoginManager.getInstance().logOut();
+
             Intent j = new Intent(MainPage.this, LoginPage.class);
             startActivity(j);
             finish();
+
 
         }
 

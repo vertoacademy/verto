@@ -43,8 +43,7 @@
                 android:layout_toRightOf="@id/btn_facebook"
                 android:background="@drawable/rounded_edit"
                 android:padding="20dp"
-                android:text="SignIn Gmail"
-                android:layout_alignTop="@+id/btn_singin_facebook" />
+                android:text="SignIn Gmail" />
 
         </RelativeLayout>
 

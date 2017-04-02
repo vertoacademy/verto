@@ -4,7 +4,7 @@
     android:id="@+id/activity_splashscreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fc9769"
+    android:background="@drawable/splash_background"
     tools:context="com.example.sharma.vertosacademy.Splashscreen">
 
    <ImageView

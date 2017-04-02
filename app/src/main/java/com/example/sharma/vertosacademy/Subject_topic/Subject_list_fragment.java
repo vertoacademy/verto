@@ -139,6 +139,7 @@ public class Subject_list_fragment extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 if (ft != null) {
                     ft.replace(R.id.subjectlist, fragment);
+                    ft.addToBackStack(null);
                     ft.commit();
 
                 }

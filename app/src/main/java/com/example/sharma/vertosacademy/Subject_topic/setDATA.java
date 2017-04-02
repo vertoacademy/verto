@@ -32,7 +32,7 @@ public class setDATA {
 
     public void showSavedValues()
     {
-        Toast.makeText(context,""+list.get(0).topic_name+"  "+list.get(0).topic_description,Toast.LENGTH_LONG).show();
+       // Toast.makeText(context,""+list.get(0).topic_name+"  "+list.get(0).topic_description,Toast.LENGTH_LONG).show();
     }
 
     public void setList(List<ProgramData> list) {

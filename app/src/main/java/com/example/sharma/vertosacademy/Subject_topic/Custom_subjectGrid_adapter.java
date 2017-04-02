@@ -54,7 +54,6 @@ public class Custom_subjectGrid_adapter extends BaseAdapter {
         }
         else{
             var_view_subject_Grid = convertView;
-
             subject_n = (TextView)var_view_subject_Grid.findViewById(R.id.sub_name);
             ProgramData pd = subjectname.get(position);
             subject_n.setText(pd.subject_name);

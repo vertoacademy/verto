@@ -8,20 +8,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sharma.vertosacademy.Drawer_Activity.MainPage;
 import com.example.sharma.vertosacademy.R;
 
 import java.util.ArrayList;
 
 public class MainNoteTaker extends AppCompatActivity {
     private ListView mlistViewNote;
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_note_taker);
 
         mlistViewNote = (ListView) findViewById(R.id.mainlistview);
+        textView=(TextView)findViewById(R.id.textViewHome);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainNoteTaker.this, MainPage.class));
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

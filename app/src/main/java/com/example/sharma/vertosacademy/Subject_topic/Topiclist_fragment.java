@@ -37,7 +37,7 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class Topiclist_fragment extends Fragment implements CardStackView.ItemExpendListener {
-     int listsize;
+    //int listsize;
     List<Integer> Color_list;
     public static Integer[] TEST_DATAS = new Integer[]{
             R.color.color_1,
@@ -72,7 +72,6 @@ public class Topiclist_fragment extends Fragment implements CardStackView.ItemEx
     private TestStackAdapter mTestStackAdapter;
 
     private List<ProgramData> topiclist;
-    private List<ProgramData> Colorlist;
     public static final String TAG1 = "topic_name";
     public static final String TAG2 = "content_description";
     String getsubjectid;
@@ -121,12 +120,15 @@ public class Topiclist_fragment extends Fragment implements CardStackView.ItemEx
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //Dismissing the progressdialog on response
-                        loading.dismiss();
-                        //Displaying our grid
-                        //Log.d("response",response);
-                        // Toast.makeText(getActivity(), " "+response, Toast.LENGTH_SHORT).show();
-                        showcardValue(response);
+                        if(response == null){
+                            Toast.makeText(getActivity(), "Content is not available", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            //Displaying our grid
+                            showcardValue(response);
+                            //Dismissing the progressdialog on response
+                            loading.dismiss();
+                        }
 
 
                     }
@@ -134,8 +136,8 @@ public class Topiclist_fragment extends Fragment implements CardStackView.ItemEx
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //loading.dismiss();
-                        ///Toast.makeText(getActivity().getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        loading.dismiss();
+                        Toast.makeText(getActivity().getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
@@ -156,22 +158,19 @@ public class Topiclist_fragment extends Fragment implements CardStackView.ItemEx
 
         try {
             JSONArray jsonArray = new JSONArray(response);
-            //Toast.makeText(getActivity(),"try me aage",Toast.LENGTH_SHORT).show();
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 ProgramData pd = new ProgramData();
                 pd.topic_name = jsonObject.getString(TAG1);
                 pd.topic_description = jsonObject.getString(TAG2);
-                //pd.TEST_DATAS = TEST_DATAS;
                 topiclist.add(pd);
                 Color_list.add(TEST_DATAS[i]);
 
             }
 
-            Toast.makeText(getActivity(), "length " + topiclist.size(), Toast.LENGTH_SHORT).show();
+
         } catch (JSONException e) {
             e.printStackTrace();
-            //Log.d("hkfkdds","\t\t\t\t\t\t\t\t\t"+e.getMessage());
             Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }

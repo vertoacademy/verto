@@ -19,13 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            android:background="@color/colorAccent"
+            app:contentScrim="@color/colorAccent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/theme"/>
+                android:background="@drawable/menulist"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -37,8 +38,6 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_menu_" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -48,5 +47,7 @@
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@drawable/refresh"
         app:backgroundTint="@color/color_button"/>
+
+    <include layout="@layout/content_menu_" />
 
 </android.support.design.widget.CoordinatorLayout>

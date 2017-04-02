@@ -1,5 +1,7 @@
 package com.example.sharma.vertosacademy;
 
+import android.content.SharedPreferences;
+
 import com.loopeer.cardstack.StackAdapter;
 
 /**
@@ -7,6 +9,8 @@ import com.loopeer.cardstack.StackAdapter;
  */
 
 public class ProgramData {
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     //* Strings for programlist activity*//
     public String Name;
     public String ImageUrl;
@@ -25,11 +29,20 @@ public class ProgramData {
     public String search_url;
     public String search_description;
 
-    //*string for search fragment Autocomplete
+    //*String for search fragment Autocomplete
     public String autocomplete_title;
     public String autocomplete_Id;
 
-    // public  Integer[] TEST_DATAS ;
+
+    //*Querylist fragment Strings*//
+    public String query_title;
+    public String query_description;
+    public String query_date;
+    public String askby;
+    public String query_Id;
+
+
+
 
 
     //* String for gridview on main page*//
@@ -59,6 +72,10 @@ public class ProgramData {
 
     //Search fragment URL
     public static final String DATA_SEARCH_URL_LIST = URL + "/Search.php?title=";
+
+    // Query Fragment URLS
+    public static final String DATA_SAVED_QUESTION = URL +"/savequestion.php";
+    public static final String DATA_GET_QUESTIONS= URL +"/getquerylist.php";
 
 
     // public static final String  URL_POST_type_USER_POST = "https://vertoacademy.000webhostapp.com/Saveusertype.php";

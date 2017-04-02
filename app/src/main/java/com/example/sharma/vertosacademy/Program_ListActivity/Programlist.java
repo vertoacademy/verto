@@ -218,7 +218,6 @@ public class Programlist extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("programid", program_id);
                 editor.apply();
-                Toast.makeText(Programlist.this, ""+ pr.Id, Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
 

@@ -139,6 +139,9 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "user type should be selected", Toast.LENGTH_SHORT).show();
             return true;
         }
+        else{
+
+        }
 
         if (username.isEmpty()) {
             _username.setError("enter username");
@@ -169,7 +172,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private void postdata() {
 
-        final ProgressDialog loading = ProgressDialog.show(this, "Please wait...", "Fetching data...", false, false);
+        final ProgressDialog loading = ProgressDialog.show(this, "Please wait...", "Saving data...", false, false);
         StringRequest request = new StringRequest(Request.Method.POST, ProgramData.URL_POST, new Response.Listener<String>() {
 
             @Override

@@ -24,15 +24,12 @@ public class Custom_Home_Adapter extends BaseAdapter {
     Context context;
     String[] menu_list;
 
+
     public Custom_Home_Adapter(Context context, String[] menu_list) {
         this.context = context;
         this.menu_list = menu_list;
-    }
 
-  /*  public Custom_Home_Adapter() {
-        this.context = context;
-        this.menu_list = menu_list;
-    }*/
+    }
 
     @Override
     public int getCount() {
@@ -46,6 +43,7 @@ public class Custom_Home_Adapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
+
         return position;
     }
 

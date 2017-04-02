@@ -2,13 +2,17 @@ package com.example.sharma.vertosacademy.Account_files;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -28,6 +32,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.sharma.vertosacademy.Drawer_Activity.MainPage;
 import com.example.sharma.vertosacademy.ProgramData;
 import com.example.sharma.vertosacademy.R;
+import com.example.sharma.vertosacademy.Userdetail;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -36,6 +41,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
@@ -48,6 +54,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 //import com.onesignal.OneSignal;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -57,64 +64,99 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.R.attr.id;
+import static android.R.attr.theme;
+
 public class LoginPage extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
+    Userdetail userdetail;
     Typeface typeface;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     private static final int REQUEST_SIGNUP = 0;
     EditText _username, _passwordText;
     Button _loginButton;
+    Toolbar toolbar;
     //// facebook intializing process//////
     LoginButton FBbutton;
     SignInButton Googlebutton;
     TextView signupButton;
     CallbackManager mCallbackManager;
     AccessTokenTracker mAccessTokenTracker;
+    TextView forgotPass;
     ////////google login process /////////
     private static final String TAG = "LoginPage";
 
     //request code for for resolution involving signin
     private static final int RC_SIGN_IN_ = 9001;
-    //request code for sharing post on user profile
-    private static final int RC_SHARE_DIALOG = 8031;
-    //key for persisting variable as saved instance state
-    public static final String KEY_IS_RESOLVING = "is_resolving";
-    public static final String KEY_SHOULD_RESOLVE = "should_resolve";
-    public static final String URL = "http://plus.google.com/u/0/+DelayroyStudios/post";
-    public static final String LAVEL_READ_MORE = "READ_MORE";
+
 
     private GoogleApiClient mGoogleApiClient;
     private GoogleSignInOptions googleSignInOptions;
-
-    String name;
-    String email;
-    String img_url;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login_page);
+        userdetail = new Userdetail(this);
         // facebook sdk initialize
         FacebookSdk.sdkInitialize(this);
-        setContentView(R.layout.activity_login_page);
 
         ////////////push notification  initialication/////////
         //OneSignal.startInit(this).init();
         typeface = Typeface.createFromAsset(getAssets(), "sangli.otf");
         _username = (EditText) findViewById(R.id.input_username);
         _passwordText = (EditText) findViewById(R.id.input_password);
+        forgotPass = (TextView) findViewById(R.id.link_forget_password);
         _loginButton = (Button) findViewById(R.id.btn_login);
         _loginButton.setTypeface(typeface);
         signupButton = (TextView) findViewById(R.id.link_signup);
         FBbutton = (LoginButton) findViewById(R.id.btn_facebook);
+
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
         ///////////////////
         Googlebutton = (SignInButton) findViewById(R.id.google_signInButton);
         googleSignInOptions = new GoogleSignInOptions.Builder(googleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this).addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions).build();
 
+        //forgotPassword Action
+        forgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater layoutInflater = LayoutInflater.from(LoginPage.this);
+                View promptView = layoutInflater.inflate(R.layout.forgot_password, null);
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginPage.this);
+                builder.setView(promptView);
+
+                builder.setTitle("Forgot Password");
+
+                final EditText editemail = (EditText) promptView.findViewById(R.id.editTextEmail);
+                final EditText editusername = (EditText) promptView.findViewById(R.id.editUserName);
+                final EditText editNewPass = (EditText) promptView.findViewById(R.id.editTextNewPass);
+                final EditText editConfPass = (EditText) promptView.findViewById(R.id.editTextConfPass);
+
+                String passemail = editemail.getText().toString();
+                String username = editusername.getText().toString();
+                String newpass = editNewPass.getText().toString();
+                String confpass = editConfPass.getText().toString();
+
+                builder.setCancelable(false).setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Toast.makeText(getActivity(), "SAVE THE PASSWORD", Toast.LENGTH_SHORT).show();
+                    }
+                }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
         /////////////////facebook process/////////////////
         FBbutton.setReadPermissions(Arrays.asList("public_profile,email,user_friends,read_custom_friendlists"));
         mCallbackManager = CallbackManager.Factory.create();
@@ -126,11 +168,12 @@ public class LoginPage extends AppCompatActivity implements
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         try {
                             String name = object.getString("name");
-                            String id = object.getString("id");
+                            String Id = object.getString("id");
                             String email = object.getString("email");
 
                             ArrayList fId = new ArrayList();
                             ArrayList fName = new ArrayList();
+
                             JSONObject jsonObject = object.getJSONObject("friends");
                             JSONArray jsonArray = jsonObject.getJSONArray("data");
 
@@ -139,10 +182,21 @@ public class LoginPage extends AppCompatActivity implements
                                 fId.add(object1.getString("id"));
                                 fName.add(object1.getString("name"));
                             }
-                            Toast.makeText(LoginPage.this, name, Toast.LENGTH_SHORT).show();
-                            SharedprefFacebook.getmInstance(LoginPage.this).saveFBinfo(id, name, email);
+                            SharedprefFacebook.getmInstance(LoginPage.this).saveFBinfo(Id, name, email);
                             SharedprefFacebook.getmInstance(LoginPage.this).saveFacebookdata(fId.toString(), fName.toString());
+
+
+                            /*Here we send the email and password and image url to userdetail class*/
+                            String id = (object.getString("id"));
+                            String url = "https://graph.facebook.com/" + id + "/picture?type=large";
+                            userdetail.setimageurl(url);
+                            userdetail.setemail(object.getString("email"));
+                            userdetail.setusername(object.getString("name"));
+                            userdetail.setIsActive(true);
+
                             startActivity(new Intent(LoginPage.this, MainPage.class));
+                            finish();
+
 
                         } catch (Exception e) {
                             Toast.makeText(LoginPage.this, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -161,6 +215,7 @@ public class LoginPage extends AppCompatActivity implements
                     protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
                         if (currentAccessToken == null) {
                             SharedprefFacebook.getmInstance(LoginPage.this).deleteFB();
+
                         }
                     }
                 };
@@ -216,21 +271,32 @@ public class LoginPage extends AppCompatActivity implements
         }
         final String username = _username.getText().toString();
         final String password = _passwordText.getText().toString();
-        final ProgressDialog loading = ProgressDialog.show(this, "Please wait...", "Loggin in.....", false, false);
+        final ProgressDialog loading = ProgressDialog.show(this, "Please wait...", "Veryfing........", false, false);
         StringRequest request = new StringRequest(Request.Method.POST, ProgramData.URL_Login, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                /* Log.d("vishal sharma",""+response);*/
-                if (response.equals("success")) {
+                if (!response.isEmpty()) {
                     loading.dismiss();
-                    Toast.makeText(getApplicationContext(), "login successfull", Toast.LENGTH_LONG).show();
-                    SharedPreferences sharedPreferences = getSharedPreferences("LoginStatusKey", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("LoginStatus", "login");
-                    editor.apply();
+
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            userdetail.setemail(jsonObject.getString("email"));
+                            userdetail.setpassword(jsonObject.getString("password"));
+                            userdetail.setusername(jsonObject.getString("username"));
+                            userdetail.setIsActive(true);
+
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
 
                     Intent i = new Intent(LoginPage.this, MainPage.class);
                     startActivity(i);
+                    finish();
                 } else {
                     loading.dismiss();
                     Toast.makeText(getApplicationContext(), "fail to login!", Toast.LENGTH_SHORT).show();
@@ -259,11 +325,11 @@ public class LoginPage extends AppCompatActivity implements
 
 
     private boolean isvaldiate() {
-        String email = _username.getText().toString();
+        String username = _username.getText().toString();
         String password = _passwordText.getText().toString();
 
-        if (email.isEmpty() && !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _username.setError("valid email address");
+        if (username.isEmpty()) {
+            _username.setError("valid username address");
             return true;
         } else {
             _username.setError(null);
@@ -320,19 +386,19 @@ public class LoginPage extends AppCompatActivity implements
     private void handleresult(GoogleSignInResult result) {
         if (result.isSuccess()) {
             GoogleSignInAccount account = result.getSignInAccount();
+
             String name = account.getDisplayName();
             String email = account.getEmail();
             String img_url = account.getPhotoUrl().toString();
 
 
-            sharedPreferences = getSharedPreferences("GoogleProf", MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            editor.putString("gUName", name);
-            editor.putString("gUemail", email);
-            editor.putString("gUImgUrl", img_url);
-            editor.apply();
+            userdetail.setemail(account.getEmail());
+            userdetail.setusername(account.getDisplayName());
+            userdetail.setimageurl(account.getPhotoUrl().toString());
+            userdetail.setIsActive(true);
             Intent i = new Intent(this, MainPage.class);
             startActivity(i);
+            finish();
 
 
         }

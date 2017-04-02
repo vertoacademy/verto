@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.sharma.vertosacademy.R;
+import com.example.sharma.vertosacademy.Userdetail;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -36,6 +37,7 @@ public class profile extends Fragment {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     String passemail,oldpass,newpass,confpass;
+    Userdetail userdetail;
 
 
     public profile() {
@@ -46,7 +48,11 @@ public class profile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        sharedPreferences = getActivity().getSharedPreferences("GoogleProf", MODE_PRIVATE);
+        userdetail = new Userdetail(getActivity());
+        String name = userdetail.getusername();
+        String email = userdetail.getemail();
+        String url = userdetail.getimageurl();
+
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_profile, container, false);
         tv_username = (TextView) view.findViewById(R.id.user_profile_name);
@@ -86,9 +92,9 @@ public class profile extends Fragment {
                 Snackbar.make(view, "Change your cover Image", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
-        tv_username.setText(sharedPreferences.getString("gUName", "username"));
-        tv_email.setText(sharedPreferences.getString("gUemail", "useremail"));
-        Glide.with(this).load(sharedPreferences.getString("gUImgUrl", "Profile Pic"))
+        tv_username.setText(name);
+        tv_email.setText(email);
+        Glide.with(this).load(url)
                 .asBitmap().centerCrop().into(new BitmapImageViewTarget(profile_pic) {
             @Override
             protected void setResource(Bitmap resource) {

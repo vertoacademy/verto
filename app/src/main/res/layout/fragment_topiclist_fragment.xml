@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context="com.example.sharma.vertosacademy.Subject_topic.Topiclist_fragment">
 
     <com.loopeer.cardstack.CardStackView

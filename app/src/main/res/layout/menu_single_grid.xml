@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/notification"/>
+        android:background="@android:drawable/ic_popup_reminder"/>
     <TextView
         android:id="@+id/menu_name"
         android:layout_width="wrap_content"
@@ -19,8 +19,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="Menu Name"
-        android:textSize="15dp"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:textSize="15dp" />
 
 
 

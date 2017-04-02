@@ -1,10 +1,18 @@
 package com.example.sharma.vertosacademy.Drawer_Activity;
 
 
+import android.app.ActionBar;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.constraint.solver.widgets.Animator;
 import android.app.Fragment;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +23,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
+import com.example.sharma.vertosacademy.Account_files.FriendList_fragment;
 import com.example.sharma.vertosacademy.Menu_Activity.Menu_Activity;
 import com.example.sharma.vertosacademy.NoteTaker.MainNoteTaker;
 import com.example.sharma.vertosacademy.NoteTaker.NoteActivity;
@@ -32,6 +42,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.google.android.gms.R.id.toolbar;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,12 +54,10 @@ public class Homepage_fragment extends Fragment {
     GridView menu;
     List<ProgramData> menu_list;
     ProgramData pd;
-    Button main,profile;
-    String str1,str2,str3;
+    Button main, profile;
 
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton floatingActionButton1;
-
 
     public Homepage_fragment() {
         // Required empty public constructor
@@ -60,9 +70,12 @@ public class Homepage_fragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_homepage, container, false);
-
+        ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPageAndroid);
+        Slide_Adapter adapterView = new Slide_Adapter(getActivity());
+        mViewPager.setAdapter(adapterView);
         menu_list = new ArrayList<ProgramData>();
         pd = new ProgramData();
+
         menu = (GridView) view.findViewById(R.id.grid_menu);
         main = (Button) view.findViewById(R.id.home_btn);
         profile = (Button) view.findViewById(R.id.profile_btna);
@@ -77,22 +90,11 @@ public class Homepage_fragment extends Fragment {
             }
         });
 
-        materialDesignFAM = (FloatingActionMenu) view.findViewById(R.id.floating_action_menu);
-        floatingActionButton1 = (FloatingActionButton) view.findViewById(R.id.editNote);
-        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //TODO something when floating action menu first item clicked
-                //Toast.makeText(getActivity().getApplicationContext(), "Add Action Here!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getActivity(), MainNoteTaker.class));
-            }
-        });
+
         /////////////GridView populate here///////////////
 
 
-         String[] str = {"Notification", "Queries", "ContactUs"};
-
-        //Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(), "" + str.length, Toast.LENGTH_SHORT).show();
+        String[] str = {"Notification", "Queries", "ContactUs"};
 
 
         Custom_Home_Adapter adapter = new Custom_Home_Adapter(getActivity(), str);
@@ -102,12 +104,29 @@ public class Homepage_fragment extends Fragment {
         menu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(getActivity(), "clicked on the Queries", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getActivity(), Menu_Activity.class);
-                startActivity(i);
+                if (id == 0) {
+                    Fragment fragment = new Notification();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    if (fragmentTransaction != null) {
+                        fragmentTransaction.replace(R.id.fragmentholder, fragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
+
+                } else if (id == 1) {
+                    Fragment fragment = new Queries();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    if (fragmentTransaction != null) {
+                        fragmentTransaction.replace(R.id.fragmentholder, fragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
+                }
+
             }
         });
-
 
 
         return view;
@@ -118,5 +137,7 @@ public class Homepage_fragment extends Fragment {
         startActivity(i);
 
     }
+
+
 
 }

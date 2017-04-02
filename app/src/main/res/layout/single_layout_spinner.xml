@@ -3,9 +3,8 @@
     android:id="@+id/spinnerxml"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:alpha="0.7"
     android:padding="10dip"
     android:text="Select department"
     android:textAlignment="center"
     android:textColor="#000"
-    android:textSize="16sp"/>
+    android:textSize="16sp" />

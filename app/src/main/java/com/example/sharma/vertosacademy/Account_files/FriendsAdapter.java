@@ -61,8 +61,7 @@ public class FriendsAdapter extends BaseAdapter {
         Friends friends = arrayList.get(position);
 
         fName.setText(friends.name);
-        String imgUrl = "https://graph.facebook.com/" +
-                friends.id +
+        String imgUrl = "https://graph.facebook.com/" + friends.id +
                 "/picture?type=large";
         Glide.with(context).load(imgUrl).asBitmap().centerCrop().into(new BitmapImageViewTarget(fImage) {
             @Override

@@ -61,6 +61,9 @@ dependencies {
     ///////////for gooogle sign depecdency/////////////
     //   compile 'com.alexzh:circleimageview:1.1.2@aar'
     //login signup circular imageview
+    compile('com.digits.sdk.android:digits:2.0.6@aar') {
+        transitive = true;
+    }
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
     compile 'com.android.volley:volley:1.0.0'
@@ -76,8 +79,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.3.0'
     compile 'com.github.clans:fab:1.6.2'
     testCompile 'junit:junit:4.12'
-    compile('com.digits.sdk.android:digits:2.0.6@aar') {
-        transitive = true;
-    }
 }
 apply plugin: 'com.google.gms.google-services'
