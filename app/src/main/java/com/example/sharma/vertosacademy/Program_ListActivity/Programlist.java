@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -19,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sharma.vertosacademy.Drawer_Activity.MainPage;
 import com.example.sharma.vertosacademy.ProgramData;
 import com.example.sharma.vertosacademy.R;
 import com.example.sharma.vertosacademy.Subject_topic.Topiclist;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Programlist extends AppCompatActivity {
+    TextView back;
     private static final String DEFAUL_VALUE = null;
     Spinner sp_school;
 
@@ -56,6 +59,7 @@ public class Programlist extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.programlist);
+        back = (TextView)findViewById(R.id.goback);
         program_name = new ArrayList<ProgramData>();
         school_name = new ArrayList<String>();
 
@@ -80,7 +84,16 @@ public class Programlist extends AppCompatActivity {
         });
 
         getDataSpinner();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(Programlist.this, MainPage.class);
+                startActivity(i);
+            }
+        });
     }
+
+
 
     private void getDataSpinner() {
         //Showing a progress dialog while our app fetches the data from url

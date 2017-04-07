@@ -56,7 +56,7 @@ public class Custom_Query_Adapter extends BaseAdapter{
             tv_querytitle.setText(pd.query_title);
             tv_querydescription.setText(pd.query_description);
             tv_querydate.setText(pd.query_date);
-            //tv_username.setText(pd.askby);
+            tv_username.setText(pd.askby);
 
         }
         else{
@@ -70,7 +70,7 @@ public class Custom_Query_Adapter extends BaseAdapter{
             tv_querytitle.setText(pd.query_title);
             tv_querydescription.setText(pd.query_description);
             tv_querydate.setText(pd.query_date);
-           // tv_username.setText(pd.askby);
+            tv_username.setText(pd.askby);
 
         }
         return var_view;

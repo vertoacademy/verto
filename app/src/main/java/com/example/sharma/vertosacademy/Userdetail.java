@@ -13,6 +13,7 @@ public class Userdetail {
     SharedPreferences.Editor editor;
     Context context;
     static Userdetail classObject;
+
     public Userdetail() {
 
     }
@@ -35,19 +36,16 @@ public class Userdetail {
     }
 
 
-    public void setIsActive(boolean isActive)
-    {
-        editor.putBoolean("isactive",isActive);
+    public void setIsActive(boolean isActive) {
+        editor.putBoolean("isactive", isActive);
         editor.apply();
     }
 
-    public boolean getIsActive()
-    {
-        return sharedPreferences.getBoolean("isactive",false);
+    public boolean getIsActive() {
+        return sharedPreferences.getBoolean("isactive", false);
     }
 
-    public void logout()
-    {
+    public void logout() {
         editor.clear();
         editor.apply();
 
@@ -62,52 +60,44 @@ public class Userdetail {
         return sharedPreferences.getString("email", null);
     }
 
-    public void setusername(String username)
-    {
+    public void setusername(String username) {
         editor.putString("username", username);
         editor.apply();
     }
 
-    public String getusername()
-    {
+    public String getusername() {
 
         return sharedPreferences.getString("username", null);
     }
 
 
-
-    public void setimageurl(String imageurl)
-    {
+    public void setimageurl(String imageurl) {
         editor.putString("imageurl", imageurl);
         editor.apply();
     }
 
-    public String getimageurl()
-    {
+    public String getimageurl() {
         return sharedPreferences.getString("imageurl", null);
     }
 
-    public void setpassword(String password){
+    public void setpassword(String password) {
         editor.putString("password", password);
         editor.apply();
 
     }
 
-    public String getpassword()
-    {
+    public String getpassword() {
         return sharedPreferences.getString("password", null);
     }
 
-    public void setqueryId(String id){
+    public void setqueryId(String id) {
         editor.putString("queryid", id);
         editor.apply();
     }
 
-    public String getqueryid()
-    {
-        return sharedPreferences.getString("queryid",null);
+    public String getqueryid() {
+        return sharedPreferences.getString("queryid", null);
     }
-
 
 
 }

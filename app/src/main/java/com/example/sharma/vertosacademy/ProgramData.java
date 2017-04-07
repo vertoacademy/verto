@@ -41,6 +41,10 @@ public class ProgramData {
     public String askby;
     public String query_Id;
 
+    //*Answer fragment Strings*//
+    public  String answerdesc;
+    public  String useranswered;
+    public  String answerdate;
 
 
 
@@ -77,6 +81,9 @@ public class ProgramData {
     public static final String DATA_SAVED_QUESTION = URL +"/savequestion.php";
     public static final String DATA_GET_QUESTIONS= URL +"/getquerylist.php";
 
+    // Answe fragment URLS
+    public static final String DATA_SAVED_ANSWER = URL +"/savequeryanswers.php";
+    public static final String DATA_GET_ANSWER = URL +"/getanswerlist.php";
 
-    // public static final String  URL_POST_type_USER_POST = "https://vertoacademy.000webhostapp.com/Saveusertype.php";
+
 }

@@ -1,0 +1,68 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/homeback1"
+    tools:context="com.example.sharma.vertosacademy.Drawer_Activity.Query_reply">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:padding="10dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+        <EditText
+            android:id="@+id/ed_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter here your relevent answer........ "
+            android:background="@android:color/transparent"/>
+        </android.support.design.widget.TextInputLayout>
+        <ImageView
+            android:id="@+id/userelpyer_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/style"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/step"/>
+
+        <TextView
+            android:id="@+id/name_userreplyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/userelpyer_image"
+            android:layout_marginRight="10dp"
+            android:text="username"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/reply_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_userreplyer"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="2dp"
+            android:textColor="#fff"/>
+        <Button
+            android:id="@+id/reply_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reply_date"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:text="Reply"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:background="@drawable/bg_of_signin_gmail"/>
+    </RelativeLayout>
+
+</ScrollView>

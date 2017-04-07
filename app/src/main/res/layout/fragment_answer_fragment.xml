@@ -1,156 +1,83 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/homeback1"
-    android:padding="5dp"
+    android:fitsSystemWindows="true"
     tools:context="com.example.sharma.vertosacademy.Drawer_Activity.Answer_fragment">
 
-    <RelativeLayout
-        android:id="@+id/top_layout"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-        <RelativeLayout
-            android:id="@+id/userasked_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/rounded_edit">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:layout_marginTop="70dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <TextView
-            android:id="@+id/problem_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp" />
-
-        <TextView
-            android:id="@+id/problem_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/problem_title" />
-
-        <ImageView
-            android:id="@+id/userasked_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/problem_description"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/step" />
-
-        <TextView
-            android:id="@+id/name_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/userasked_image"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:text="username" />
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name_user"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="2dp"
-            android:text="Date-Time" />
-
-        </RelativeLayout>
-
-
-        <Button
-            android:id="@+id/user_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/userasked_layout"
-            android:layout_marginLeft="20dp"
-            android:text="Answer"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:textSize="15sp"
-            android:textColor="#fff"
-            android:background="@drawable/bg_of_signin_gmail"/>
-
-        <ListView
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/user_answer"
-            android:layout_marginTop="10dp">
+            android:background="@drawable/homeback1"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorAccent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-        </ListView>
+            <RelativeLayout
+                android:id="@+id/userasked_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_edit"
+                android:padding="10dp">
 
+                <TextView
+                    android:id="@+id/problem_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp" />
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/problem_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/problem_title" />
 
+                <ImageView
+                    android:id="@+id/userasked_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/problem_description"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/step" />
 
+                <TextView
+                    android:id="@+id/name_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/userasked_image"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="5dp"
+                    android:text="username" />
 
-     <RelativeLayout
-         android:id="@+id/usereply_layout"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:padding="15dp"
-         android:layout_marginTop="50dp"
-         android:visibility="invisible"
-         android:background="@drawable/rounded_edit">
-         <EditText
-             android:id="@+id/ed_user"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:hint="Enter here your relevent answer........ "
-             android:background="@android:color/transparent"/>
+                <TextView
+                    android:id="@+id/asking_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/name_user"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Date-Time" />
 
-         <ImageView
-             android:id="@+id/userrelpyer_image"
-             android:layout_width="80dp"
-             android:layout_height="80dp"
-             android:layout_alignParentRight="true"
-             android:layout_below="@id/ed_user"
-             android:layout_marginTop="15dp"
-             android:background="@drawable/step"/>
+            </RelativeLayout>
 
-         <TextView
-             android:id="@+id/name_userreplyer"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentRight="true"
-             android:layout_below="@id/userrelpyer_image"
-             android:layout_marginRight="10dp"
-             android:text="username"
-             android:textColor="#fff"/>
-         <TextView
-             android:id="@+id/submit_answer"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="datetime"
-             android:layout_below="@id/name_userreplyer"
-             android:layout_alignParentRight="true"
-             android:layout_marginRight="15dp"
-             android:layout_marginTop="2dp"
-             android:textColor="#fff"/>
-         <Button
-             android:id="@+id/answer_submit"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_below="@id/submit_answer"
-             android:layout_marginTop="10dp"
-             android:layout_marginLeft="10dp"
-             android:textColor="#fff"
-             android:textAllCaps="false"
-             android:text="Submit"
-             android:textSize="16sp"
-             android:clickable="true"
-             android:background="@drawable/bg_of_signin_gmail"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
 
-     </RelativeLayout>
+    <include layout="@layout/content_answers"/>
 
-
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

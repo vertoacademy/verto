@@ -39,24 +39,18 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //push notification dependency
-
     // Required for OneSignal, even if you have added FCM.//////// also in google login
-
     // Required for geotagging
-
     // play-services-analytics is only needed when using 8.1.0 or older.
     // compile 'com.google.android.gms:play-services-analytics:+'
-
     //facebook dependency
-
     //google login dependency
     //compile 'com.google.android.gms:play-services-plus:7.8.0'
-
     //compile 'com.onesignal:OneSignal:3.+@aar'
     ///////////for gooogle sign depecdency/////////////
     //   compile 'com.alexzh:circleimageview:1.1.2@aar'
@@ -64,6 +58,7 @@ dependencies {
     compile('com.digits.sdk.android:digits:2.0.6@aar') {
         transitive = true;
     }
+    compile files('PhotoUtil.jar')
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
     compile 'com.android.volley:volley:1.0.0'

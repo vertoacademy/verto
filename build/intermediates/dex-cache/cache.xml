@@ -2,22 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\sharma\AndroidStudioProjects\VERTOSAPP\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\sharma\AndroidStudioProjects\VERTOSAPP\app\PhotoUtil.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="0c8980821e968a6ca8797a60c5b7b82049dfd12c">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\VERTOSAPP\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_639ba020070b13de27d5238dbf1c34d4b3a24ba8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharma\AndroidStudioProjects\VERTOSAPP\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\sharma\AndroidStudioProjects\VERTOSAPP\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c5cd32ce605a756f5c68adcf27d414d3dd32f902\classes.dex" />
+        sha1="caf49e92eae4ca2805d530a92cb4777c1ef53f53">
+        <dex dex="C:\Users\sharma\AndroidStudioProjects\VERTOSAPP\app\build\intermediates\pre-dexed\debug\PhotoUtil_39e9617ec513a625b3b141bde4f918340f2c830d.jar" />
     </item>
 
 </items>

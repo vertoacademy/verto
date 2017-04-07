@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AlertDialog;
@@ -35,7 +36,7 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.sharma.vertosacademy.Account_files.FriendList_fragment;
 import com.example.sharma.vertosacademy.Account_files.LoginPage;
 import com.example.sharma.vertosacademy.Account_files.VertosAcademy;
-import com.example.sharma.vertosacademy.NoteTaker.MainNoteTaker;
+import com.example.sharma.vertosacademy.NoteTaker.NoteMain;
 import com.example.sharma.vertosacademy.Program_ListActivity.Programlist;
 import com.example.sharma.vertosacademy.R;
 import com.example.sharma.vertosacademy.Splashscreen;
@@ -46,7 +47,7 @@ import static com.example.sharma.vertosacademy.R.id.toolbar;
 
 public class MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    public int backcount;
     ImageView tv_imgUrl;
     TextView txt_Uname, txt_Uemail;
     Animation push_left_in, push_left_out;
@@ -58,6 +59,13 @@ public class MainPage extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+        Fragment fragment = new Homepage_fragment();
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if (ft != null) {
+            ft.replace(R.id.fragmentholder, fragment);
+            ft.commit();
+        }
         userdeatil = new Userdetail(this);
         push_left_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.push_left_in);
         push_left_out = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.push_left_out);
@@ -68,6 +76,8 @@ public class MainPage extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         menu = navigationView.getMenu();
         navigationView.getBackground().setAlpha(200);
+
+        navigationView.setItemIconTintList(null);
 
 
         view = navigationView.getHeaderView(0);
@@ -113,6 +123,30 @@ public class MainPage extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+        /*if(backcount>0)
+        {
+            finish();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Press again to exits", Toast.LENGTH_LONG).show();
+            backcount++;
+            new CountDownTimer(2000,1000)
+            {
+
+                @Override
+                public void onTick(long l)
+                {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    backcount=0;
+                }
+
+            }.start();
+
+        }*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -171,16 +205,36 @@ public class MainPage extends AppCompatActivity
             }
         }
         else if(id == R.id.nav_stickyNotes){
-            startActivity(new Intent(this, MainNoteTaker.class));
+            startActivity(new Intent(this, NoteMain.class));
+            //Toast.makeText(this, "Working In Progress.....", Toast.LENGTH_SHORT).show();
         }
         else if (id == R.id.nav_share) {
             toolbar.setTitle("Share");
-            Toast.makeText(this, "Share Page", Toast.LENGTH_SHORT).show();
+            Fragment fragment = new Sharepage();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            /*finish();
+            overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);*/
+            if (fragmentTransaction != null) {
+                fragmentTransaction.replace(R.id.fragmentholder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
 
 
         } else if (id == R.id.about_us) {
             toolbar.setTitle("About Us");
-            Toast.makeText(this, "About Us Page", Toast.LENGTH_SHORT).show();
+            Fragment fragment = new AboutUs();
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            /*finish();
+            overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);*/
+            if (fragmentTransaction != null) {
+                fragmentTransaction.replace(R.id.fragmentholder, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+
 
         } else if (id == R.id.app_user) {
             toolbar.setTitle("App Users");

@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sharma.vertosacademy.ProgramData;
+import com.example.sharma.vertosacademy.Program_ListActivity.Programlist;
 import com.example.sharma.vertosacademy.R;
 
 import org.json.JSONArray;
@@ -41,6 +44,7 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class Subject_list_fragment extends Fragment {
+    TextView back;
     private List<ProgramData> subjectname;
     public static final String TAG1 = "subject_name";
     public static final String TAG2 = "id";
@@ -61,6 +65,7 @@ public class Subject_list_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_subject_list, container, false);
+        back = (TextView)view.findViewById(R.id.goback);
         subjectname = new ArrayList<ProgramData>();
         subject_Gd = (GridView) view.findViewById(R.id.sub_Grid);
 
@@ -70,6 +75,13 @@ public class Subject_list_fragment extends Fragment {
         editor.apply();
         getprogram_id = sharedPreferences.getString("programid", null);
         subjectGrid();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Programlist.class);
+                startActivity(i);
+            }
+        });
         return view;
     }
 
@@ -130,6 +142,7 @@ public class Subject_list_fragment extends Fragment {
          */
         Custom_subjectGrid_adapter adapter = new Custom_subjectGrid_adapter(getActivity(), subjectname);
         subject_Gd.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         subject_Gd.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -149,7 +162,7 @@ public class Subject_list_fragment extends Fragment {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("subjectid",send_subjectid);
                 editor.commit();
-                Toast.makeText(getActivity(), ""+send_subjectid, Toast.LENGTH_SHORT).show();
+
 
             }
         });

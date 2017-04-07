@@ -26,7 +26,7 @@ public class Slide_Adapter extends PagerAdapter {
     }
 
     private int[] sliderImagesId = new int[]{
-            R.drawable.menulist, R.drawable.splash_background, R.drawable.homeback1
+            R.drawable.swipe1, R.drawable.home3, R.drawable.menulist,R.drawable.home5
     };
 
 

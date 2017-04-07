@@ -1,13 +1,52 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/homeback1"
     tools:context="com.example.sharma.vertosacademy.Drawer_Activity.AboutUs">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="55dp"
+        android:padding="10dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/about_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ABOUT VERTOS ACADEMY APP:
+Students based in India can use this application to study the content regarding their course, all the subjects and topics in a simple language is provided which minimizes the surffing and saves students time.Teachers can upload their notes so that it becomes easier for the students to study."
+            android:textColor="#000"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/about_title"
+            android:layout_marginTop="5dp"
+            android:text="DISCLAIMER:
+            All information provided on VERTOS ACADEMY is for studying purposes only and do not constitute legal or other professional advice.
+            Vertos Academy app may contain information created and maintained by a variety of external sources,such as local and international sites,students handmade notes,ppts etc.
+            Vertos Academy doesnot control,monitor or gaurantee the accuracy of the information contained in external sites and doesnot necessarily endorse.
+            Vertos Academy app is only for making the students work easier and simpler and by using this application you agree that its just for information and studying purposes and not for professional advise.
+            You acknowledge and undertake that you are accessing the services on the applicationat your own risk.we shall neiter be liable nor responsible for any actions or inactions,while we have taken precautions to avoid inaccuracies in content."
+            android:textColor="#000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/communitation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:layout_below="@id/disclaimer"
+            android:layout_marginTop="5dp"
+            android:text="COMMUNICATIONS:
+            when you visit or send e-mails to us,you are communicating us electionically.You will be required to provide a valid phone number or e-mail.We may communicate with you by e-mail,SMS,phone calls,social media or by any mode of communication."/>
+
+
+    </RelativeLayout>
+
+</ScrollView>

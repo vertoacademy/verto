@@ -23,12 +23,16 @@ public class Custom_Home_Adapter extends BaseAdapter {
 
     Context context;
     String[] menu_list;
+    Integer[]img;
 
+    public Custom_Home_Adapter() {
 
-    public Custom_Home_Adapter(Context context, String[] menu_list) {
+    }
+
+    public Custom_Home_Adapter(Context context, String[] menu_list, Integer[] img) {
         this.context = context;
         this.menu_list = menu_list;
-
+        this.img = img;
     }
 
     @Override
@@ -57,6 +61,8 @@ public class Custom_Home_Adapter extends BaseAdapter {
             ImageView menu_icon = (ImageView) var_view.findViewById(R.id.ic_menu_gride);
             String pd =  menu_list[position];
             menu_name.setText(pd);
+            Integer imagearr = img[position];
+            menu_icon.setImageDrawable(context.getDrawable(imagearr));
         }
         else{
             var_view = convertView;

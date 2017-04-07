@@ -149,6 +149,7 @@
     <orderEntry type="library" exported="" name="constraint-layout-1.0.0-alpha3" level="project" />
     <orderEntry type="library" exported="" name="play-services-auth-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="cardstack-1.0.2" level="project" />
+    <orderEntry type="library" exported="" name="PhotoUtil" level="project" />
     <orderEntry type="library" exported="" name="firebase-iid-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="glide-3.7.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="jsr305-2.0.1" level="project" />

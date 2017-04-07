@@ -12,10 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -42,23 +45,19 @@ import java.util.List;
 import java.util.Map;
 
 import static android.R.attr.data;
+import static android.R.attr.fragment;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Queries extends Fragment {
-    RelativeLayout _queryadd, _newquery;
-    Button button_query;
     ListView list;
-    Userdetail userdetail;
-    EditText querytitle, querydesc;
-    Button queryadd, viewquery;
+    Button button_query;
     List<ProgramData> queries;
-    public static final String TAG_NAME1 = "question_title";
-    public static final String TAG_NAME2 = "asked_by";
-    public static final String TAG_NAME3 = "question_description";
-
+    Userdetail userdetail;
+    ImageView blink_imag;
+    Animation blink;
 
     public Queries() {
         // Required empty public constructor
@@ -70,55 +69,120 @@ public class Queries extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_queries, container, false);
-        queries = new ArrayList<ProgramData>();
-        userdetail=new Userdetail();
-
-        Toast.makeText(getActivity(), "query working", Toast.LENGTH_SHORT).show();
-        ((MainPage)getActivity()).setTit("Queries");
-        button_query = (Button) view.findViewById(R.id.btn_add_query);
-        _queryadd = (RelativeLayout) view.findViewById(R.id.layout_query);
-        _newquery = (RelativeLayout) view.findViewById(R.id.new_query);
+        userdetail = new Userdetail(getActivity());
         list = (ListView) view.findViewById(R.id.query_list);
-        ////second layout///////
-        querytitle = (EditText) view.findViewById(R.id.query_title);
-        querydesc = (EditText) view.findViewById(R.id.query_discription);
-        queryadd = (Button) view.findViewById(R.id.query_submit);
-        viewquery = (Button) view.findViewById(R.id.viewlist);
+        button_query = (Button) view.findViewById(R.id.btn_add_query);
+        blink_imag=(ImageView)view.findViewById(R.id.img_ask);
+        blink = AnimationUtils.loadAnimation(getActivity(), R.anim.blink);
+        blink_imag.setAnimation(blink);
+        ((MainPage) getActivity()).setTit("Queries");
+        queries = new ArrayList<ProgramData>();
         Querylist();
-        queryadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addquestionlist();
-                querytitle.setText("");
-                querydesc.setText("");
-
-            }
-        });
-
         button_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                _queryadd.setVisibility(View.GONE);
-                _newquery.setVisibility(View.VISIBLE);
+                Fragment fragment = new Addquery();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                if (fragmentTransaction != null) {
+                    fragmentTransaction.replace(R.id.fragmentholder, fragment);
+                    fragmentTransaction.commit();
+                }
 
             }
         });
 
-        viewquery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                queryadd.setVisibility(View.VISIBLE);
-                _newquery.setVisibility(View.GONE);
-                Querylist();
 
-            }
-        });
 
         return view;
     }
 
+    //////Methods for View Querylist/////////
+    private void Querylist() {
+        final ProgressDialog loading = ProgressDialog.show(getActivity(), "Please wait...", "Fetching data...", false, false);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(ProgramData.DATA_GET_QUESTIONS,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //Displaying our grid
+                        listview(response);
 
-    public void addquestionlist() {
+                        //Dismissing the progressdialog on response
+                        loading.dismiss();
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        //Creating a request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        //Adding our request to the queue
+        requestQueue.add(jsonArrayRequest);
+    }
+
+    private void listview(JSONArray response) {
+
+        //Looping through all the elements of json array
+        for (int i = 0; i < response.length(); i++) {
+            JSONObject obj = null;
+            //Creating a json object of the current index
+            try {
+
+                //getting json object from current index
+                obj = response.getJSONObject(i);
+                ProgramData pd = new ProgramData();
+                pd.query_title = obj.getString("question_title");
+                pd.query_date = obj.getString(("date_time"));
+                pd.query_description = obj.getString("question_description");
+                pd.query_Id = obj.getString("id");
+                pd.askby = obj.getString("asked_by");
+                pd.query_date = obj.getString("date_time");
+                queries.add(pd);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        Custom_Query_Adapter adapter = new Custom_Query_Adapter(getActivity(), queries);
+        list.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                ProgramData pd = queries.get(position);
+                userdetail.setqueryId(pd.query_Id);
+               // Toast.makeText(getActivity(), ""+userdetail.getqueryid(), Toast.LENGTH_SHORT).show();
+                Fragment fragment = new Answer_fragment();
+                Bundle b = new Bundle();
+                b.putString("querid",pd.query_Id);
+                b.putString("query_title", pd.query_title);
+                b.putString("query_desc", pd.query_description);
+                b.putString("askername", pd.askby);
+                b.putString("date", pd.query_date);
+                fragment.setArguments(b);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                if (fragmentTransaction != null) {
+                    fragmentTransaction.replace(R.id.fragmentholder, fragment);
+                    fragmentTransaction.commit();
+                }
+            }
+        });
+
+
+    }
+
+
+    /*public void addquestionlist() {
 
         final String questitle = querytitle.getText().toString();
         final String quesdescription = querydesc.getText().toString();
@@ -150,7 +214,7 @@ public class Queries extends Fragment {
                 Map<String, String> map = new HashMap<>();
                 map.put("title", questitle);
                 map.put("description", quesdescription);
-
+                map.put("uname",username);
                 return map;
             }
         };
@@ -241,6 +305,6 @@ public class Queries extends Fragment {
         });
 
 
-    }
+    }*/
 
 }

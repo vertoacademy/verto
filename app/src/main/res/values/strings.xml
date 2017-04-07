@@ -12,4 +12,9 @@
     <string name="dialog_title">Change Profile</string>
     <string name="title_activity_menu_">Menu List</string>
 
+    <string name="theAppName">Note Taker App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment1">Hello blank fragment</string>
+
 </resources>

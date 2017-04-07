@@ -2,37 +2,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/homeback1"
     android:orientation="vertical"
     tools:context="com.example.sharma.vertosacademy.Subject_topic.Subject_list_fragment">
 
-    <Toolbar
-        android:id="@+id/tool"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:titleTextColor="#fff">
 
+        <TextView
+            android:id="@+id/goback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/option_menu"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subjects"
             android:textColor="#fff"
-            android:textSize="20dp" />
-    </Toolbar>
+            android:textSize="18sp"
+            android:text="SubjectList"
+            android:layout_marginLeft="20dp"/>
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@id/tool">
+    </android.support.v7.widget.Toolbar>
+
+
+
     <GridView
         android:id="@+id/sub_Grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:horizontalSpacing="10dp"
         android:numColumns="2"
-        android:padding="5dp"
+        android:layout_below="@id/toolbar"
+        android:padding="10dp"
         android:verticalSpacing="10dp" />
-</RelativeLayout>
+
 
 
 </RelativeLayout>

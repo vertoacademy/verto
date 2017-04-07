@@ -3,133 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/homeback1"
+    android:orientation="vertical"
     tools:context="com.example.sharma.vertosacademy.Drawer_Activity.Queries">
 
     <RelativeLayout
-        android:id="@+id/holder"
+        android:id="@+id/list_layout"
         android:layout_width="match_parent"
-        android:layout_height="510dp">
-    <RelativeLayout
-        android:id="@+id/layout_query"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="50dp">
 
         <ListView
             android:id="@+id/query_list"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_alignParentTop="true"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btn_add_query"
+            android:layout_marginBottom="5dp"
             android:elevation="10dp"
             android:paddingTop="20dp" />
 
-
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/new_query"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible">
-
-        <TextView
-            android:id="@+id/heading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="70dp"
-            android:gravity="center"
-            android:text="New Queries"
-            android:textColor="#fff"
-            android:textSize="20dp" />
-
-        <EditText
-            android:id="@+id/query_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/heading"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_edit"
-            android:focusableInTouchMode="true"
-            android:hint="Write query title!"
-            android:padding="20dp"
-            android:textColor="#fff"
-            android:textSize="15sp" />
-
-        <EditText
-            android:id="@+id/query_discription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/query_title"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rounded_edit"
-            android:focusableInTouchMode="true"
-            android:padding="20dp"
-            android:textColor="#fff"
-            android:textSize="15sp"
-            android:hint="Write here your  Query description!" />
-
-        <Button
-            android:id="@+id/query_submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/query_discription"
-            android:layout_centerHorizontal="true"
-            android:textColor="#fff"
-            android:background="@drawable/bg_of_signin_gmail"
-            android:textSize="15dp"
-            android:text="Submit"
-            android:textAllCaps="false"/>
-    </RelativeLayout>
-    </RelativeLayout>
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_alignParentBottom="true">
-        <Button
-            android:id="@+id/viewlist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:textAlignment="center"
-            android:background="@drawable/bg_of_signin_gmail"
-            android:clickable="true"
-            android:drawableTop="@drawable/ic_query_list"
-            android:elevation="10dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="7dp"
-            android:text="Add Query"
-            android:padding="5dp"
-            android:textAllCaps="false"
-            android:textColor="#fff" />
 
         <Button
             android:id="@+id/btn_add_query"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:elevation="10dp"
-            android:clickable="true"
-            android:textAlignment="center"
-            android:paddingTop="7dp"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:paddingBottom="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="40dp"
             android:background="@drawable/bg_of_signin_gmail"
+            android:clickable="true"
             android:drawableTop="@drawable/edit"
-            android:text="Add Query"/>
+            android:padding="5dp"
+            android:text="Add Query"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
+        <ImageView
+            android:id="@+id/img_ask"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/ic_ask_query"
+            android:layout_below="@id/query_list"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/btn_add_query"/>
+    </RelativeLayout>
 
-
-    </Toolbar>
 
 </RelativeLayout>

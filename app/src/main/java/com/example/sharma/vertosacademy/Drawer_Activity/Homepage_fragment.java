@@ -27,8 +27,6 @@ import android.widget.Toolbar;
 
 import com.example.sharma.vertosacademy.Account_files.FriendList_fragment;
 import com.example.sharma.vertosacademy.Menu_Activity.Menu_Activity;
-import com.example.sharma.vertosacademy.NoteTaker.MainNoteTaker;
-import com.example.sharma.vertosacademy.NoteTaker.NoteActivity;
 import com.example.sharma.vertosacademy.ProgramData;
 import com.example.sharma.vertosacademy.Program_ListActivity.Programlist;
 import com.example.sharma.vertosacademy.R;
@@ -94,10 +92,11 @@ public class Homepage_fragment extends Fragment {
         /////////////GridView populate here///////////////
 
 
-        String[] str = {"Notification", "Queries", "ContactUs"};
+        String[] str = {"Notification", "Queries", "ContactUs", "HR Interview"};
+        Integer[] img = {R.drawable.notification, R.drawable.query, R.drawable.contactus,R.drawable.ic_interview};
 
 
-        Custom_Home_Adapter adapter = new Custom_Home_Adapter(getActivity(), str);
+        Custom_Home_Adapter adapter = new Custom_Home_Adapter(getActivity(), str, img);
         menu.setAdapter(adapter);
 
 
@@ -123,6 +122,10 @@ public class Homepage_fragment extends Fragment {
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                     }
+                } else if (id == 2) {
+                    Toast.makeText(getActivity(), "Click on Contact Us menu", Toast.LENGTH_SHORT).show();
+                } else if (id == 3) {
+                    Toast.makeText(getActivity(), "Click on interview menu", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -137,7 +140,6 @@ public class Homepage_fragment extends Fragment {
         startActivity(i);
 
     }
-
 
 
 }

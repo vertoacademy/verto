@@ -35,6 +35,12 @@
     <color name="color_25">#607D8B</color>
     <color name="color_26">#000000</color>
 
+    <color name="colorPrimary1">#125688</color>
+    <color name="colorPrimaryDark1">#125688</color>
+    <color name="textColorPrimary1">#FF0000</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent1">#c8e8ff</color>
 
     <color name="background_color">#B3E5FC</color>
 
